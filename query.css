@@ -24,7 +24,7 @@
         font-size:28px;
     }
     .frst-sub-bar .upper-portion .first_el .forma input[type='mail'], .frst-sub-bar .upper-portion .first_el .forma form input[type='mail']::placeholder{
-        font-size: 58px;
+        font-size: 28px;
     }
     .payment .payment-text h1{ 
         font-size:40px !important;
