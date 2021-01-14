@@ -63,3 +63,9 @@ function windowState(){
 }
 windowState();
 window.addEventListener('resize',windowState);
+
+
+
+/*Implementirati jezike*/
+/*%value%*/
+document.querySelector('body').innerHTML = document.querySelector('body').innerHTML.replace('%value%','RSD');
