@@ -6,8 +6,6 @@
     .hero-container .hero-content-1 {
     }
 }
-
-
 @media (max-width:585px)  { 
     .nav-lista li{
         margin: 0px 0px 0px 12px !important;
@@ -18,10 +16,7 @@
     .item-description .item-description-title{
         font-size:28px !important;
     }
-   
 }
-
-
 @media (max-width:650px)  { 
     /*Nav Bar*/
     nav{
