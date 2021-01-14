@@ -68,5 +68,5 @@ window.addEventListener('resize',windowState);
 for(let obj of Array.from(document.querySelectorAll('.valuta'))){
     obj.innerHTML = obj.innerHTML.replace('%value%','RSD');
 }
-
+/*currency je klasa za vrednosti valuta*/
 /*Ubaciti span obj klase i njihov text content menjati u odnosu na selektovani option?*/
