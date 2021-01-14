@@ -1,4 +1,50 @@
+@media(max-width:365px){
+    body .first_el .form-title {
+        font-size: 24px;
+    }
+    .Uslovi ul li a{
+        font-size: 20px;
+    }
+    body .smt-container div.smt-el1 {
+        font-size: 22px !important;
+    }
+    body .destination div.dest-title {
+        font-size: 29px !important;
+    }
+    .desc-container .desc-title::before {
+        font-size: 16px;
+    }
+    .desc-container .desc-title {
+        font-size: 29px !important;
+    }
+nav .nav-img {
+    width: 30% !important;
+}
+    .nav-login-currency a{
+        font-size: 20px !important;
+    }
+    nav .nav-navigation .nav-lista li  {
+        margin-left: 10px !important;
+    }
+        nav .nav-navigation .nav-lista li a {
+            margin-left: 0px !important;
+            font-size: 20px;
+        }
+    
+}
 @media (max-width:425px){
+    body .upper-portion .forma input[type='submit'] {
+        font-size: 26px;
+    }
+    .hero .hero-container .hero-content-1 .hero-title {
+        font-size: 26px !important;
+    }
+    .smt-container div.smt-el1 {
+        font-size: 24px !important;
+    }
+    .smt-container .smt-el2 a{
+        font-size: 26px !important;
+    }
     nav .nav-lista li a{
         font-size:20px;
     }
@@ -9,9 +55,28 @@
     .nav-currency,.nav-login{
         font-size: 22px;
     }
+    .destination div.dest-title{
+        font-size:35px !important;
+    }
+    .payment-container .payment-text::before {
+        font-size: 18px;
+    }
+    .payment .payment-container .payment-text p {
+        font-size: 20px !important;
+    }
+    .desc-container .desc-title {
+        font-size: 35px;
+    }
 }
-
 @media (max-width:465px){
+    .desc-content-item .item-description .item-description-title {
+        font-size: 24px !important;
+    }
+}
+@media (max-width:465px){
+   .payment .payment-container .payment-text h1 {
+        font-size: 35px !important;
+    }
 .smt-container .smt-el1 {
     font-size: 28px !important;
 }
@@ -20,6 +85,10 @@
 }
 }
 @media (max-width:500px) {
+
+    body .social-media-title {
+        font-size: 29px;
+    }
     .first_el .form-title{
         font-size:28px;
     }
