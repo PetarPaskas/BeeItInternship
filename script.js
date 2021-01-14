@@ -64,7 +64,7 @@ function windowState(){
 windowState();
 window.addEventListener('resize',windowState);
 
-
+ 
 
 /*Implementirati jezike*/
 /*%value%*/
