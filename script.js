@@ -24,6 +24,7 @@ let elementi={
 
 elementi.ocisti();
 document.querySelector(elementi.batoni).addEventListener('click',(event)=>{
+    
     document.querySelector(`.${elementi.active_button}`).classList.toggle(elementi.active_button);
     event.target.classList.toggle(elementi.active_button);
     let sadrzaji = Array.from(document.querySelectorAll(elementi.sadrzaj_batona));
@@ -63,9 +64,9 @@ function windowState(){
 }
 windowState();
 window.addEventListener('resize',windowState);
+/*Valuta je klasa u kojoj se menja tekstualni sadrzaj %value% u trenutno selektovanu valutu*/
+for(let obj of Array.from(document.querySelectorAll('.valuta'))){
+    obj.innerHTML = obj.innerHTML.replace('%value%','RSD');
+}
 
- 
-
-/*Implementirati jezike*/
-/*%value%*/
-document.querySelector('body').innerHTML = document.querySelector('body').innerHTML.replace('%value%','RSD');
+/*Ubaciti span obj klase i njihov text content menjati u odnosu na selektovani option?*/
