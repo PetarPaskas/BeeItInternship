@@ -9,11 +9,9 @@
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+<script defer src='script.js'></script>
 <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
-
-    <script defer src='script.js'></script>
 </head>
 <body>
     <nav>
@@ -24,7 +22,7 @@
             </div>
             
  <!--el2--><div class='nav-content'>
-               <!--el1-->  <div class='nav-login-currency'><div class='nav-login'><a href='#'>LOGIN</a></div><div class='nav-currency'><select id='valutaOption' value='V'><option>Eng</option><option>Srb</option></select>(<span id='global-currency'>%value%</span>)</div></div>
+               <!--el1-->  <div class='nav-login-currency'><div class='nav-login'><a href='#'>LOGIN</a></div><div class='nav-currency'><select id='valutaOption' value='V'><option>Eng</option><option>Srb</option></select>(<span id='global-currency' class='valuta'>%value%</span>)</div></div>
 
                 <!--el2-->  <div class='nav-navigation'><ul class='nav-lista'><li><a href='#'>Info</a></li><li><a href='#'>About us</a></li><li><a href='#'>Contact</a></li></ul></div>
 
@@ -36,7 +34,7 @@
     <section class='hero '>
        <!--<div class='probaActive'></div>-->
         <div class='global-container hero-container'>
-          <!--el1-->  <div class='hero-content-1'><div class='hero-title'>Enjoy our hot<span class='breakHeroTitle'></span> summer deals!</div><div class='hero-price'>from %value%<span class='currency'>69</span></div><div></div><button>Book Now!</button></button></div>
+          <!--el1-->  <div class='hero-content-1'><div class='hero-title'>Enjoy our hot<span class='breakHeroTitle'></span> summer deals!</div><div class='hero-price'>from <span class='valuta'>%value%</span><span class='currency'>69</span></div><div></div><button>Book Now!</button></button></div>
 
           <!--el2-->  <div class='hero-content-2'><button id='left'><img src='Slike/Hero/arrowleft.png'></button><button id='right'><img src='Slike/Hero/arrowright.png'></button></div>
         </div>
@@ -99,10 +97,10 @@
     <section class='destination'>
         <div class='dest-title'>Showing <span class="dest-title-presek"></span> our offers from</div>
         <div class='global-container dest-block-container'>
-        <!--el1--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/London2.jpg'></div><div class='dest-headings'><h1>London</h1><h3>from %value%<span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
-        <!--el2--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/Hamburg.jpg'></div><div class='dest-headings'><h1>Hamburg</h1><h3>from %value%<span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
-        <!--el3--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/Alicante.jpg'></div><div class='dest-headings'><h1>Alicante</h1><h3>from %value%<span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
-        <!--el4--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/Milano.jpg'></div><div class='dest-headings'><h1>Milano</h1><h3>from %value%<span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
+        <!--el1--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/London2.jpg'></div><div class='dest-headings'><h1>London</h1><h3>from <span class='valuta'>%value%</span><span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
+        <!--el2--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/Hamburg.jpg'></div><div class='dest-headings'><h1>Hamburg</h1><h3>from <span class='valuta'>%value%</span><span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
+        <!--el3--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/Alicante.jpg'></div><div class='dest-headings'><h1>Alicante</h1><h3>from <span class='valuta'>%value%</span><span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
+        <!--el4--->    <div class='dest-block'><div class='dest-img'><img src='Slike/Destination/Milano.jpg'></div><div class='dest-headings'><h1>Milano</h1><h3>from <span class='valuta'>%value%</span><span class='currency'>59</span></h3></div><div class='dest-button'><button><h1>Book now &#65310;</h1></button></div></div>
         </div>
     </section>
 
@@ -123,70 +121,67 @@
             </div>
 
 
+      <!--        -------------------------------- ----------------------        TELEFON -------------- -------------   -->
 
-
-<!--        -------------------------------- ----------------------        TELEFON -------------- -------------   -->
-
-<div class='payment-mobile'>
-    <div class='payment-mobile-item'>
-        <div class='preSlike'>
-        <div class='payment-mobile-slika'>
-            <img src='Slike/Payment/dete.png'>
+      <div class='payment-mobile'>
+        <div class='payment-mobile-item'>
+            <div class='preSlike'>
+            <div class='payment-mobile-slika'>
+                <img src='Slike/Payment/dete.png'>
+            </div>
+        </div>
+            <h2 class='payment-mobile-naslov'>Regular</h2>
+           <ul class='payment-mobile-item-lista'>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Reclinable seats</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>1 Hand luggage</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Extra leg room</span></li>
+            <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Extra cabin luggage</span></li>
+            <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Extra hold luggage</span></li>
+            <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Lounge access</span></li>
+      
+           </ul>
+        </div>
+        <div class='payment-mobile-item'>
+            <div class='preSlike'>
+            <div class='payment-mobile-slika'>
+                <img src='Slike/Payment/dete.png'>
+            </div>
+        </div>
+            <h2 class='payment-mobile-naslov'>Plus</h2>
+           <ul class='payment-mobile-item-lista'>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Reclinable seats</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>1 Hand luggage</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Extra leg room</span></li>
+            <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Extra cabin luggage</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Extra hold luggage</span></li>
+            <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Lounge access</span></li>
+      
+           </ul>
+        </div>
+        <div class='payment-mobile-item'>
+            <div class='preSlike'>
+            <div class='payment-mobile-slika'>
+                <img src='Slike/Payment/dete.png'>
+            </div>
+        </div>
+            <h2 class='payment-mobile-naslov'>Premium</h2>
+           <ul class='payment-mobile-item-lista'>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Reclinable seats</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>1 Hand luggage</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Extra leg room</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Extra cabin luggage</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Extra hold luggage</span></li>
+            <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Lounge access</span></li>
+      
+           </ul>
         </div>
     </div>
-        <h2 class='payment-mobile-naslov'>Regular</h2>
-       <ul class='payment-mobile-item-lista'>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Reclinable seats</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>1 Hand luggage</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Extra leg room</span></li>
-        <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Extra cabin luggage</span></li>
-        <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Extra hold luggage</span></li>
-        <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Lounge access</span></li>
-  
-       </ul>
-    </div>
-    <div class='payment-mobile-item'>
-        <div class='preSlike'>
-        <div class='payment-mobile-slika'>
-            <img src='Slike/Payment/dete.png'>
-        </div>
-    </div>
-        <h2 class='payment-mobile-naslov'>Plus</h2>
-       <ul class='payment-mobile-item-lista'>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Reclinable seats</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>1 Hand luggage</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Extra leg room</span></li>
-        <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Extra cabin luggage</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Extra hold luggage</span></li>
-        <li><span><ion-icon name="wallet-outline"></ion-icon></span><span>Lounge access</span></li>
-  
-       </ul>
-    </div>
-    <div class='payment-mobile-item'>
-        <div class='preSlike'>
-        <div class='payment-mobile-slika'>
-            <img src='Slike/Payment/dete.png'>
-        </div>
-    </div>
-        <h2 class='payment-mobile-naslov'>Premium</h2>
-       <ul class='payment-mobile-item-lista'>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Reclinable seats</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>1 Hand luggage</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline" ></ion-icon></span><span>Extra leg room</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Extra cabin luggage</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Extra hold luggage</span></li>
-        <li class='active_li'><span><ion-icon name="checkmark-outline"></ion-icon></span><span>Lounge access</span></li>
-  
-       </ul>
-    </div>
-</div>
-
-<!--        -------------------------------- ----------------------        TELEFON -------------- -------------   -->
-
-
+    
+    <!--        -------------------------------- ----------------------        TELEFON -------------- -------------   -->
+    
 
             <div class='payment-tabs'>
-                <div class='buttons'>
+                <div class='buttons' id='mrzimBatone'>
                     <button id='defaultFocus'>regular</button>
                     <button>plus</button>
                     <button>premium</button>
@@ -246,6 +241,11 @@
                     </ul></div>
                 </div>
             </div>
+
+      
+
+
+
         </div>
     </section>
 
