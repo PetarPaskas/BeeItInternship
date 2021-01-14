@@ -1,5 +1,5 @@
 let elementi={
-    number_of_aval_pict:2,
+    number_of_aval_pict:0,
     batoni:'.buttons',
     sadrzaj_batona:'.button-tab-content',
     defaultFocus: 'defaultFocus',
