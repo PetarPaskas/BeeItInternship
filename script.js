@@ -80,25 +80,25 @@ let langPacks = {
         valuta:'RSD',
         navTabList:['Info', 'O nama', 'Kontakt'],
         descriptionTitleBefore:'desc-title-srbLang',
-        itemDescriptionTitles:['Podesavajuca sedista','Izobilje komfornosti','Besplatan prtljazni prostor', 'Prijateljska posada'],
+        itemDescriptionTitles:['Podešavajuća sedišta','Izobilje komfornosti','Besplatan prtljažni prostor', 'Prijateljska posada'],
         paymentTitleBefore:'payment-text-srbLang',
         usloviText:['Usluge & privatnost','Mapa sajta'],
         zasebniElementi:{
-            heroTitle:`Uzivajte u vrelim <span class='breakHeroTitle'></span> letnjim ponudama`,
-            heroTitleButton:'Rezervisi!',
+            heroTitle:`Uživajte u vrelim <span class='breakHeroTitle'></span> letnjim ponudama`,
+            heroTitleButton:'Rezerviši!',
             descriptionTitle:'Leti pametno, leti sa Green Earth!',
-            offersTitle:'Pogledajte <span class="dest-title-presek"></span> nasu ponudu od',
-            smtMainText:'Ne znas gde bi?',
-            smtLinkText:'Dozvoli da te inspirisemo!',
-            paymentTitle:'Putuj kako ti zelis',
+            offersTitle:'Pogledajte <span class="dest-title-presek"></span> našu ponudu od',
+            smtMainText:'Ne znaš gde bi?',
+            smtLinkText:'Dozvoli da te inspirišemo!',
+            paymentTitle:'Putuj kako ti želis',
             paymentInfoText:'Pregledajte sve usluge i nadogradnje',
             subscribeTitle:'Pretplati se na newsletter',
             socialMediaTitle:'Prati nas'
         },
         mailPlaceholder:'Unesi svoj mail',
-        submitFormButton:'Posalji',
+        submitFormButton:'Pošalji',
         fromDummyClass:'od',
-        paymentItemLista:['Podesavajuca sedista','1 Rucni prtljag','Dodatni prostor za noge','Dodatni prtljag u kabini','Dodatni prtljag u skladistu','Pristup u lounge']
+        paymentItemLista:['Podešavajuca sedista','1 Ručni prtljag','Dodatni prostor za noge','Dodatni prtljag u kabini','Dodatni prtljag u skladištu','Pristup u lounge']
     },
     Eng:{
         numberFormatter: new Intl.NumberFormat('en'),
@@ -316,4 +316,5 @@ document.getElementById('valutaOption').addEventListener('change',()=>{
     changeLanguage(langPacks.Eng,langPacks.defaultCene);
     if(document.getElementById('valutaOption').value =='srb')
     changeLanguage(langPacks.Srb,langPacks.defaultCene);
+    windowState();
 });
