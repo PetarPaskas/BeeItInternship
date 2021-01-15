@@ -38,11 +38,13 @@ function changeHeroImg(eventObjId){
 }
 /*------FUNKCIJA RAZRESAVANJA FORMA BUTTON SADRZAJA, brise se '>' na ispod 1220px--------*/
 function windowState(){
+    let batonObjekat = document.querySelector(elementi.input_form_btn);
     if(window.innerWidth < 1220){
-        document.querySelector(elementi.input_form_btn).value = 'Send';
+        batonObjekat.value = batonObjekat.value.replace(' >','');
     }
     if(window.innerWidth > 1220){
-        document.querySelector(elementi.input_form_btn).value = 'Send >';
+        if(batonObjekat.value.indexOf('>') == -1)
+        batonObjekat.value = batonObjekat.value+' >';
     }
 }
 
@@ -73,6 +75,7 @@ let langPacks = {
        
     },
     Srb:{
+        numberFormatter: new Intl.NumberFormat('de-DE'),
         valuta:'RSD',
         navTabList:['Info', 'O nama', 'Kontakt'],
         descriptionTitleBefore:'desc-title-srbLang',
@@ -97,6 +100,7 @@ let langPacks = {
         paymentItemLista:['Podesavajuca sedista','1 Rucni prtljag','Dodatni prostor za noge','Dodatni prtljag u kabini','Dodatni prtljag u skladistu','Pristup u lounge']
     },
     Eng:{
+        numberFormatter: new Intl.NumberFormat('en'),
         valuta:'£',
         navTabList:['Info','About us','Contact'],
         descriptionTitleBefore:'desc-title-engLang',
@@ -137,15 +141,15 @@ let changeLanguage = function(langPack,objCena){
         for(let cena in objCena){
             if(obj.id == 'Global'){
                 if(langPack.valuta == 'RSD')
-                obj.textContent = ' '+objCena[cena]*134;
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]*134);
                 else
-                obj.textContent = ' '+objCena[cena];
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]);
             }
             if(cena == obj.id && obj.id != 'Global'){
                 if(langPack.valuta == 'RSD')
-                obj.textContent = ' '+objCena[cena]*134;
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]*134);
                 else
-                obj.textContent = ' '+objCena[cena];
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]);
 
             }
         }
@@ -201,21 +205,70 @@ let changeLanguage = function(langPack,objCena){
     /*Menjanje sadrzaja svih paketa regular/premium/plus*/
     for(let payLiItem of document.getElementsByClassName('paymentItem-0')){
         payLiItem.textContent = langPack.paymentItemLista[0];
+        if(langPack.valuta == 'RSD'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb') <=0)
+            payLiItem.classList.add('activeSrb');
+        }
+        if(langPack.valuta == '£'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb')>=0)
+            payLiItem.classList.remove('activeSrb');
+        }
+        
     }
     for(let payLiItem of document.getElementsByClassName('paymentItem-1')){
         payLiItem.textContent = langPack.paymentItemLista[1];
+        if(langPack.valuta == 'RSD'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb') <=0)
+            payLiItem.classList.add('activeSrb');
+        }
+        if(langPack.valuta == '£'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb')>=0)
+            payLiItem.classList.remove('activeSrb');
+        }
     }
     for(let payLiItem of document.getElementsByClassName('paymentItem-2')){
         payLiItem.textContent = langPack.paymentItemLista[2];
+        if(langPack.valuta == 'RSD'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb') <=0)
+            payLiItem.classList.add('activeSrb');
+        }
+        if(langPack.valuta == '£'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb')>=0)
+            payLiItem.classList.remove('activeSrb');
+        }
     }
     for(let payLiItem of document.getElementsByClassName('paymentItem-3')){
         payLiItem.textContent = langPack.paymentItemLista[3];
+        if(langPack.valuta == 'RSD'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb') <=0)
+            payLiItem.classList.add('activeSrb');
+        }
+        if(langPack.valuta == '£'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb')>=0)
+            payLiItem.classList.remove('activeSrb');
+        }
     }
     for(let payLiItem of document.getElementsByClassName('paymentItem-4')){
         payLiItem.textContent = langPack.paymentItemLista[4];
+        if(langPack.valuta == 'RSD'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb') <=0)
+            payLiItem.classList.add('activeSrb');
+        }
+        if(langPack.valuta == '£'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb')>=0)
+            payLiItem.classList.remove('activeSrb');
+        }
     }
     for(let payLiItem of document.getElementsByClassName('paymentItem-5')){
         payLiItem.textContent = langPack.paymentItemLista[5];
+        if(langPack.valuta == 'RSD'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb') <=0)
+            payLiItem.classList.add('activeSrb');
+        }
+        if(langPack.valuta == '£'){
+            if(Array.from(payLiItem.classList).findIndex(el=> el == 'activeSrb')>=0)
+            payLiItem.classList.remove('activeSrb');
+        }
     }
 
 }
@@ -245,9 +298,17 @@ document.querySelector('.hero-content-2').addEventListener('click',(event)=>{
     intervalBackground = setInterval(changeHeroImg,5000,'right');
 });
 /*---------IMPLEMENTACIJA FORM BUTTON VALUE RESENJA--------------*/
-/*windowState();
-window.addEventListener('resize',windowState);*/
+windowState();
+window.addEventListener('resize',windowState);
 
 
 /*--------------POZIVANJE FUNKCIJE MENJANJA SADRZAJA TEKSTA------------------*/ 
-changeLanguage(langPacks.Srb,langPacks.defaultCene);
+window.addEventListener('load',()=>{
+    changeLanguage(langPacks.Eng,langPacks.defaultCene);
+});
+document.getElementById('valutaOption').addEventListener('change',()=>{
+    if(document.getElementById('valutaOption').value =='eng')
+    changeLanguage(langPacks.Eng,langPacks.defaultCene);
+    if(document.getElementById('valutaOption').value =='srb')
+    changeLanguage(langPacks.Srb,langPacks.defaultCene);
+});
