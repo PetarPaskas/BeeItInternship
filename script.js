@@ -57,12 +57,9 @@ let langPacks = {
     defaultCene:{
         Global: function(){
             let najmanji = this.London;
-            console.log('Najmanji '+najmanji)
             for(let obj in this){
-                console.log('Prvi red '+obj);
                 if(this[obj] < najmanji){
                 najmanji = this[obj];
-                console.log('Drugi red '+this[obj]);
             }
             }
             return najmanji;
@@ -145,9 +142,9 @@ let changeLanguage = function(langPack,objCena){
         for(let cena in objCena){
             if(obj.id == 'Global'){
                 if(langPack.valuta == 'RSD')
-                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]*132);
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena.Global()*132);
                 else
-                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]);
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena.Global());
             }
             if(cena == obj.id && obj.id != 'Global'){
                 if(langPack.valuta == 'RSD')
