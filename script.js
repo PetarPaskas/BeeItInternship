@@ -141,13 +141,13 @@ let changeLanguage = function(langPack,objCena){
         for(let cena in objCena){
             if(obj.id == 'Global'){
                 if(langPack.valuta == 'RSD')
-                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]*134);
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]*132);
                 else
                 obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]);
             }
             if(cena == obj.id && obj.id != 'Global'){
                 if(langPack.valuta == 'RSD')
-                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]*134);
+                obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]*132);
                 else
                 obj.textContent = ' '+langPack.numberFormatter.format(objCena[cena]);
 
@@ -298,13 +298,14 @@ document.querySelector('.hero-content-2').addEventListener('click',(event)=>{
     intervalBackground = setInterval(changeHeroImg,5000,'right');
 });
 /*---------IMPLEMENTACIJA FORM BUTTON VALUE RESENJA--------------*/
-windowState();
+
 window.addEventListener('resize',windowState);
 
 
 /*--------------POZIVANJE FUNKCIJE MENJANJA SADRZAJA TEKSTA------------------*/ 
 window.addEventListener('load',()=>{
     changeLanguage(langPacks.Eng,langPacks.defaultCene);
+    windowState();
 });
 document.getElementById('valutaOption').addEventListener('change',()=>{
     if(document.getElementById('valutaOption').value =='eng')
