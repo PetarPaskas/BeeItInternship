@@ -96,7 +96,7 @@ a:link, a:visited{
     vertical-align: middle;
     background-image: url('Slike/lang/eng.png');
     background-repeat: no-repeat;
-    background-position-x: 24px;
+    background-position-x: 30px;
     background-size:contain;
 }
 .nav-currency select{
@@ -104,7 +104,7 @@ a:link, a:visited{
     border:none;
     outline:none;
     color:transparent;
-    padding-left:10px;
+    cursor:pointer;
 }
 .nav-currency span{
     font-size:16px;
@@ -117,7 +117,7 @@ a:link, a:visited{
 .nav-currency::before{
     content: "|";
     display:inline-block;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 6px 0px 10px;
 }
 
 

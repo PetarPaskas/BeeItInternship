@@ -70,3 +70,71 @@ for(let obj of Array.from(document.querySelectorAll('.valuta'))){
 }
 /*currency je klasa za vrednosti valuta*/
 /*Ubaciti span obj klase i njihov text content menjati u odnosu na selektovani option?*/
+
+let langPacks = {
+    defaultCene:{
+        London:59,
+        Hamburg:59,
+        Alicante:59,
+        Milano:59,
+        Global: function(){
+            let najmanji = this.London;
+            for(let obj in this){
+                if(this[obj] < najmanji)
+                najmanji = this[obj];
+            }
+            return najmanji;
+        }
+    },
+    Srb:{
+        valuta:'RSD',
+        navTabList:['Info', 'O nama', 'Kontakt'],
+        heroTitle:`Uzivajte u vrelim <span class='breakHeroTitle'></span> letnjim ponudama`,
+        heroTitleButton:'Rezervisi!',
+        descriptionTitleBefore:'Niska cena ne znaci i jeftino',
+        descriptionTitle:'Leti pametno, leti sa Green Earth!',
+        itemDescriptionTitles:['Podesavajuca sedista','Izobilje komfornosti','Besplatan prtljazni prostor', 'Prijateljska posada'],
+        offersTitle:'Pogledajte nasu ponudu od',
+        smtMainText:'Ne znas gde bi?',
+        smtLinkText:'Dozvoli da te inspirisemo!',
+        paymentTitleBefore:'Kvalitet iznutra',
+        paymentTitle:'Putuj kako ti zelis',
+        paymentInfoText:'Pregledajte sve usluge i nadogradnje',
+        subscribeTitle:'Pretplati se na newsletter',
+        socialMediTitle:'Prati nas',
+        usloviText:['Usluge & privatnost','Mapa sajta']
+    },
+    Eng:{
+        valuta:'£',
+        navTabList:['Info','About us','Contact'],
+        heroTitle:`Enjoy our hot <span class='breakHeroTitle'></span> summer deals`,
+        heroTitleButton:'Book now!',
+        descriptionTitleBefore:'Cheap price doesn\'t mean cheap',
+        descriptionTitle:'Fly smart, fly with Green Earth!',
+        itemDescriptionTitles: ['Reclinable seats', 'Plenty of legroom', 'Free cabin luggage', 'Friendly Crew'],
+        offersTitle:'Showing our offers from',
+        smtMainText:'Don\'t know where to go?',
+        smtLinkText:'Let us inspire you!',
+        paymentTitleBefore:'Quality from the inside',
+        paymentTitle:'Travel the way you want',
+        paymentInfoText:'View all services & upgrades',
+        subscribeTitle:'Subscribe to our newsletter',
+        socialMediTitle:'Follow us',
+        usloviText:['Terms & privacy','Site map']
+    }
+}
+
+function changeLanguage(langPack,objCena){
+    for(let obj of Array.from(document.querySelectorAll('.valuta'))){
+        obj.textContent=langPack.valuta;
+    }
+    for(let obj of Array.from(document.querySelectorAll('.currency'))){
+        for(let cena in objCena){
+            if(cena == obj.id){
+                obj.textContent = objCena[cena];
+            }
+        }
+    }
+    
+}
+changeLanguage(langPacks.Eng,langPacks.defaultCene);
