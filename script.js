@@ -1,3 +1,6 @@
+/*---------------------------------
+--------------DOM ELEMENTI----------
+-------------------------------------*/
 let elementi={
     number_of_aval_pict:0,
     batoni:'.buttons',
@@ -21,21 +24,7 @@ let elementi={
     },
     stanje_slike:0
 };
-
-elementi.ocisti();
-document.querySelector(elementi.batoni).addEventListener('click',(event)=>{
-    
-    document.querySelector(`.${elementi.active_button}`).classList.toggle(elementi.active_button);
-    event.target.classList.toggle(elementi.active_button);
-    let sadrzaji = Array.from(document.querySelectorAll(elementi.sadrzaj_batona));
-for(let ele of sadrzaji){
-    if(ele.id == event.target.textContent)
-    ele.style.display = 'flex';
-    else
-    ele.style.display = 'none';
-}
-});
-
+/*------FUNKCIJA RAZRESAVANJA HERO POZADINSKE SLIKE--------*/
 function changeHeroImg(eventObjId){
     if(eventObjId == elementi.left_hero_button){
         (elementi.stanje_slike == 0) ? elementi.stanje_slike = elementi.number_of_aval_pict : elementi.stanje_slike--;
@@ -47,13 +36,7 @@ function changeHeroImg(eventObjId){
         document.querySelector(elementi.hero_klasa).style.backgroundImage = `url('Slike/Hero/${elementi.stanje_slike}.jpg')`;
     }
 }
-
-let intervalBackground = setInterval(changeHeroImg,5000,'right');
-document.querySelector('.hero-content-2').addEventListener('click',(event)=>{
-    clearInterval(intervalBackground);
-    changeHeroImg(event.target.parentNode.id);
-    intervalBackground = setInterval(changeHeroImg,5000,'right');
-});
+/*------FUNKCIJA RAZRESAVANJA FORMA BUTTON SADRZAJA, brise se '>' na ispod 1220px--------*/
 function windowState(){
     if(window.innerWidth < 1220){
         document.querySelector(elementi.input_form_btn).value = 'Send';
@@ -62,14 +45,11 @@ function windowState(){
         document.querySelector(elementi.input_form_btn).value = 'Send >';
     }
 }
-windowState();
-window.addEventListener('resize',windowState);
-/*Valuta je klasa u kojoj se menja tekstualni sadrzaj %value% u trenutno selektovanu valutu*/
-for(let obj of Array.from(document.querySelectorAll('.valuta'))){
-    obj.innerHTML = obj.innerHTML.replace('%value%','RSD');
-}
-/*currency je klasa za vrednosti valuta*/
-/*Ubaciti span obj klase i njihov text content menjati u odnosu na selektovani option?*/
+
+
+/*---------------------------------
+--------------LANGUAGE PACKS----------
+-------------------------------------*/
 
 let langPacks = {
     defaultCene:{
@@ -123,10 +103,13 @@ let langPacks = {
         usloviText:['Terms & privacy','Site map']
     }
 }
-
-function changeLanguage(langPack,objCena){
+/*---------------------------------
+--------------FUNKCIJA PROMENE JEZIKA----------
+-------------------------------------*/
+let changeLanguage = function(langPack,objCena){
+    console.log('radim');
     for(let obj of Array.from(document.querySelectorAll('.valuta'))){
-        obj.textContent=langPack.valuta;
+        obj.innerHTML=langPack.valuta;
     }
     for(let obj of Array.from(document.querySelectorAll('.currency'))){
         for(let cena in objCena){
@@ -137,4 +120,35 @@ function changeLanguage(langPack,objCena){
     }
     
 }
-changeLanguage(langPacks.Eng,langPacks.defaultCene);
+/*---------------------------------
+--------------RAZRESAVANJE PAYMENT-TABS BUTTONA----------
+-------------------------------------*/
+elementi.ocisti();
+document.querySelector(elementi.batoni).addEventListener('click',(event)=>{
+    
+    document.querySelector(`.${elementi.active_button}`).classList.toggle(elementi.active_button);
+    event.target.classList.toggle(elementi.active_button);
+    let sadrzaji = Array.from(document.querySelectorAll(elementi.sadrzaj_batona));
+for(let ele of sadrzaji){
+    if(ele.id == event.target.textContent)
+    ele.style.display = 'flex';
+    else
+    ele.style.display = 'none';
+}
+});
+
+
+/*------FUNKCIJA RAZRESAVANJA TAJMERA HERO POZADINSKE SLIKE ---------*/
+let intervalBackground = setInterval(changeHeroImg,5000,'right');
+document.querySelector('.hero-content-2').addEventListener('click',(event)=>{
+    clearInterval(intervalBackground);
+    changeHeroImg(event.target.parentNode.id);
+    intervalBackground = setInterval(changeHeroImg,5000,'right');
+});
+/*---------IMPLEMENTACIJA FORM BUTTON VALUE RESENJA--------------*/
+windowState();
+window.addEventListener('resize',windowState);
+
+
+/*--------------POZIVANJE FUNKCIJE MENJANJA SADRZAJA TEKSTA------------------*/ 
+changeLanguage(langPacks.Srb,langPacks.defaultCene);
