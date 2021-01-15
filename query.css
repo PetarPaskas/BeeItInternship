@@ -145,6 +145,15 @@ nav .nav-img {
 }
 @media (max-width:650px)  { 
     /*Nav Bar*/
+    body .nav-currency{
+        font-size:22px;
+    }
+    .nav-currency select{
+        padding-left: 15px;
+    }
+    .nav-currency span{
+        font-size:12px;
+    }
     nav{
         padding:10px 0px 10px 0px;
     }
