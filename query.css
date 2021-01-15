@@ -1,3 +1,11 @@
+@media (max-width:335px){
+    #paymentInfoText{
+        font-size:16px !important;
+    }
+    .payment-mobile-item-lista li {
+        font-size: 17px !important;
+    }
+}
 @media (max-width:345px){
     #paymentInfoText{
         font-size:16px !important;
