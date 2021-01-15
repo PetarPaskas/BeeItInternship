@@ -2,7 +2,7 @@
 --------------DOM ELEMENTI----------
 -------------------------------------*/
 let elementi={
-    number_of_aval_pict:0,
+    number_of_aval_pict:2,
     batoni:'.buttons',
     sadrzaj_batona:'.button-tab-content',
     defaultFocus: 'defaultFocus',
@@ -76,6 +76,7 @@ let langPacks = {
     },
     Srb:{
         numberFormatter: new Intl.NumberFormat('de-DE'),
+        imageSrc:`url('Slike/lang/srb.png')`,
         valuta:'RSD',
         navTabList:['Info', 'O nama', 'Kontakt'],
         descriptionTitleBefore:'desc-title-srbLang',
@@ -101,6 +102,7 @@ let langPacks = {
     },
     Eng:{
         numberFormatter: new Intl.NumberFormat('en'),
+        imageSrc:`url('Slike/lang/eng.png')`,
         valuta:'£',
         navTabList:['Info','About us','Contact'],
         descriptionTitleBefore:'desc-title-engLang',
@@ -131,6 +133,8 @@ let langPacks = {
 --------------FUNKCIJA PROMENE JEZIKA----------
 -------------------------------------*/
 let changeLanguage = function(langPack,objCena){
+    /*Promena slike*/
+    document.querySelector('.nav-currency').style.backgroundImage = langPack.imageSrc;
     /*ucitavanje valute*/
     for(let obj of Array.from(document.querySelectorAll('.valuta'))){
 
