@@ -53,72 +53,171 @@ function windowState(){
 
 let langPacks = {
     defaultCene:{
+        Global: function(){
+            let najmanji = this.London;
+            console.log('Najmanji '+najmanji)
+            for(let obj in this){
+                console.log('Prvi red '+obj);
+                if(this[obj] < najmanji){
+                najmanji = this[obj];
+                console.log('Drugi red '+this[obj]);
+            }
+            }
+            return najmanji;
+        },
         London:59,
         Hamburg:59,
         Alicante:59,
         Milano:59,
-        Global: function(){
-            let najmanji = this.London;
-            for(let obj in this){
-                if(this[obj] < najmanji)
-                najmanji = this[obj];
-            }
-            return najmanji;
-        }
+        
+       
     },
     Srb:{
         valuta:'RSD',
         navTabList:['Info', 'O nama', 'Kontakt'],
-        heroTitle:`Uzivajte u vrelim <span class='breakHeroTitle'></span> letnjim ponudama`,
-        heroTitleButton:'Rezervisi!',
-        descriptionTitleBefore:'Niska cena ne znaci i jeftino',
-        descriptionTitle:'Leti pametno, leti sa Green Earth!',
+        descriptionTitleBefore:'desc-title-srbLang',
         itemDescriptionTitles:['Podesavajuca sedista','Izobilje komfornosti','Besplatan prtljazni prostor', 'Prijateljska posada'],
-        offersTitle:'Pogledajte nasu ponudu od',
-        smtMainText:'Ne znas gde bi?',
-        smtLinkText:'Dozvoli da te inspirisemo!',
-        paymentTitleBefore:'Kvalitet iznutra',
-        paymentTitle:'Putuj kako ti zelis',
-        paymentInfoText:'Pregledajte sve usluge i nadogradnje',
-        subscribeTitle:'Pretplati se na newsletter',
-        socialMediTitle:'Prati nas',
-        usloviText:['Usluge & privatnost','Mapa sajta']
+        paymentTitleBefore:'payment-text-srbLang',
+        usloviText:['Usluge & privatnost','Mapa sajta'],
+        zasebniElementi:{
+            heroTitle:`Uzivajte u vrelim <span class='breakHeroTitle'></span> letnjim ponudama`,
+            heroTitleButton:'Rezervisi!',
+            descriptionTitle:'Leti pametno, leti sa Green Earth!',
+            offersTitle:'Pogledajte <span class="dest-title-presek"></span> nasu ponudu od',
+            smtMainText:'Ne znas gde bi?',
+            smtLinkText:'Dozvoli da te inspirisemo!',
+            paymentTitle:'Putuj kako ti zelis',
+            paymentInfoText:'Pregledajte sve usluge i nadogradnje',
+            subscribeTitle:'Pretplati se na newsletter',
+            socialMediaTitle:'Prati nas'
+        },
+        mailPlaceholder:'Unesi svoj mail',
+        submitFormButton:'Posalji',
+        fromDummyClass:'od',
+        paymentItemLista:['Podesavajuca sedista','1 Rucni prtljag','Dodatni prostor za noge','Dodatni prtljag u kabini','Dodatni prtljag u skladistu','Pristup u lounge']
     },
     Eng:{
         valuta:'£',
         navTabList:['Info','About us','Contact'],
-        heroTitle:`Enjoy our hot <span class='breakHeroTitle'></span> summer deals`,
-        heroTitleButton:'Book now!',
-        descriptionTitleBefore:'Cheap price doesn\'t mean cheap',
-        descriptionTitle:'Fly smart, fly with Green Earth!',
+        descriptionTitleBefore:'desc-title-engLang',
         itemDescriptionTitles: ['Reclinable seats', 'Plenty of legroom', 'Free cabin luggage', 'Friendly Crew'],
-        offersTitle:'Showing our offers from',
-        smtMainText:'Don\'t know where to go?',
-        smtLinkText:'Let us inspire you!',
-        paymentTitleBefore:'Quality from the inside',
-        paymentTitle:'Travel the way you want',
-        paymentInfoText:'View all services & upgrades',
-        subscribeTitle:'Subscribe to our newsletter',
-        socialMediTitle:'Follow us',
-        usloviText:['Terms & privacy','Site map']
+        paymentTitleBefore:'payment-text-engLang',
+        usloviText:['Terms & privacy','Site map'],
+        zasebniElementi:{
+            heroTitle:`Enjoy our hot <span class='breakHeroTitle'></span> summer deals`,
+            heroTitleButton:'Book now!',
+            descriptionTitle:'Fly smart, fly with Green Earth!',
+            paymentTitle:'Travel the way you want',
+            paymentInfoText:'View all services & upgrades',
+            offersTitle:`Showing <span class="dest-title-presek"></span> our offers from`,
+            smtMainText:'Don\'t know where to go?',
+            smtLinkText:'Let us inspire you!',
+            subscribeTitle:'Subscribe to our newsletter',
+            socialMediaTitle:'Follow us'
+           
+        },
+        mailPlaceholder:'Enter your mail here',
+        submitFormButton:'Send',
+        fromDummyClass:'from',
+        paymentItemLista:['Reclinable seats','1 Hand luggage','Extra leg room','Extra cabin luggage','Extra hold luggage','Lounge access']
+        
     }
 }
 /*---------------------------------
 --------------FUNKCIJA PROMENE JEZIKA----------
 -------------------------------------*/
 let changeLanguage = function(langPack,objCena){
-    console.log('radim');
+    /*ucitavanje valute*/
     for(let obj of Array.from(document.querySelectorAll('.valuta'))){
+
         obj.innerHTML=langPack.valuta;
     }
+    /*podesavanje cena*/
     for(let obj of Array.from(document.querySelectorAll('.currency'))){
         for(let cena in objCena){
-            if(cena == obj.id){
-                obj.textContent = objCena[cena];
+            if(obj.id == 'Global'){
+                if(langPack.valuta == 'RSD')
+                obj.textContent = ' '+objCena[cena]*134;
+                else
+                obj.textContent = ' '+objCena[cena];
+            }
+            if(cena == obj.id && obj.id != 'Global'){
+                if(langPack.valuta == 'RSD')
+                obj.textContent = ' '+objCena[cena]*134;
+                else
+                obj.textContent = ' '+objCena[cena];
+
             }
         }
     }
+    /*::before pseudoklasa tekstovi*/
+    let descTitle = document.getElementById('descriptionTitle');
+    for(let classListName of Array.from(descTitle.classList)){
+        descTitle.classList.remove(classListName);
+    }
+    descTitle.classList.add('desc-title');
+    descTitle.classList.add(langPack.descriptionTitleBefore);
+
+    let paymentText = document.getElementById('paymentTextBefore');
+    for(let classListName of Array.from(paymentText.classList)){
+        paymentText.classList.remove(classListName);
+    }
+    paymentText.classList.add('payment-text');
+    paymentText.classList.add(langPack.paymentTitleBefore)
+
+     /*nizovi tekstovi item-description-title*/
+     document.getElementById('itemDescriptionTitles-0').textContent = langPack.itemDescriptionTitles[0];
+     document.getElementById('itemDescriptionTitles-1').textContent = langPack.itemDescriptionTitles[1];
+     document.getElementById('itemDescriptionTitles-2').textContent = langPack.itemDescriptionTitles[2];
+     document.getElementById('itemDescriptionTitles-3').textContent = langPack.itemDescriptionTitles[3];
+    /*nizovi tekstovi navTabList*/
+     document.getElementById('navTabList-0').textContent = langPack.navTabList[0];
+     document.getElementById('navTabList-1').textContent = langPack.navTabList[1];
+     document.getElementById('navTabList-2').textContent = langPack.navTabList[2];
+    /*nizovi tekstovi usloviText*/
+    document.getElementById('usloviText-0').textContent = langPack.usloviText[0];
+    document.getElementById('usloviText-1').textContent = langPack.usloviText[1];    
+
+    /*Sada svi zasebni elementi*/
+    for(let idString in langPack.zasebniElementi){
+        document.getElementById(idString).innerHTML = langPack.zasebniElementi[idString];
+    }
+    /*Sada value buttoni i tako te male stvari*/
+    document.getElementById('submitFormButton').value = langPack.submitFormButton;
+    document.getElementById('mailPlaceholder').placeholder = langPack.mailPlaceholder;
     
+    /*Menjanje svih 'from'*/
+    let fromovi = document.getElementsByClassName('fromDummyClass');
+    for(let fromObj of Array.from(fromovi)){
+        fromObj.textContent = langPack.fromDummyClass;
+    }
+
+    /*Menjanje svih destination butona*/
+    let destButtonSvi = document.querySelectorAll('.dest-button button h1');
+    for(let destBatoni of Array.from(destButtonSvi)){
+        destBatoni.innerHTML = langPack.zasebniElementi.heroTitleButton.replace('!',' &#65310;');
+    }
+
+    /*Menjanje sadrzaja svih paketa regular/premium/plus*/
+    for(let payLiItem of document.getElementsByClassName('paymentItem-0')){
+        payLiItem.textContent = langPack.paymentItemLista[0];
+    }
+    for(let payLiItem of document.getElementsByClassName('paymentItem-1')){
+        payLiItem.textContent = langPack.paymentItemLista[1];
+    }
+    for(let payLiItem of document.getElementsByClassName('paymentItem-2')){
+        payLiItem.textContent = langPack.paymentItemLista[2];
+    }
+    for(let payLiItem of document.getElementsByClassName('paymentItem-3')){
+        payLiItem.textContent = langPack.paymentItemLista[3];
+    }
+    for(let payLiItem of document.getElementsByClassName('paymentItem-4')){
+        payLiItem.textContent = langPack.paymentItemLista[4];
+    }
+    for(let payLiItem of document.getElementsByClassName('paymentItem-5')){
+        payLiItem.textContent = langPack.paymentItemLista[5];
+    }
+
 }
 /*---------------------------------
 --------------RAZRESAVANJE PAYMENT-TABS BUTTONA----------
@@ -146,8 +245,8 @@ document.querySelector('.hero-content-2').addEventListener('click',(event)=>{
     intervalBackground = setInterval(changeHeroImg,5000,'right');
 });
 /*---------IMPLEMENTACIJA FORM BUTTON VALUE RESENJA--------------*/
-windowState();
-window.addEventListener('resize',windowState);
+/*windowState();
+window.addEventListener('resize',windowState);*/
 
 
 /*--------------POZIVANJE FUNKCIJE MENJANJA SADRZAJA TEKSTA------------------*/ 

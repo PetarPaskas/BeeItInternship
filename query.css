@@ -147,6 +147,7 @@ nav .nav-img {
     /*Nav Bar*/
     body .nav-currency{
         font-size:22px;
+        background-position-x:25px ;
     }
     
     .nav-currency span{
