@@ -28,7 +28,7 @@ body{
 
 
 nav{
-    width:100%;
+    width:100%; 
     padding:20px 0px 20px 0px;
     overflow: hidden;
 }
@@ -191,7 +191,7 @@ padding:10px 4px 10px 4px;
 .hero-content-1 button:hover{
     cursor:pointer;
     transition:all 0.3s;
-    background-color: rgba(165, 165, 165, 0.1);
+    background-color: rgba(255, 255, 255, 0.37);
     border:2.5px solid #002f9d;
     color:#021f59;
 }
@@ -300,7 +300,7 @@ z-index: 3;
 .destination{
     overflow: hidden;
     background-color: #002f9d;
-    padding: 0px 0px 30px 0px;
+    padding: 10px 0px 30px 10px;
 }
 .dest-title{
     color:#fff;
@@ -329,7 +329,7 @@ justify-content: space-between
 }
 .dest-block:hover{
     transition:transform 0.2s;
-    transform:scale(1.1);
+    transform:scale(1.06);
 }
 .dest-img{
     width:100%;
@@ -367,8 +367,17 @@ justify-content: space-between
     font-weight: 400;
 }
 
-    
-
+#specialOffer{
+    position:relative;
+}
+#specialOfferImage{
+    position:absolute;
+    z-index:3;
+    width:60%;
+    height:auto;
+    left:-3.5%;
+    top:5%;
+}
 /*+++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++
 ++++++++   SOME-TITLE   +++++
@@ -587,10 +596,7 @@ color:#fff;
     font-weight: 400;
 }
 
-.ion-icon{
-    vertical-align: middle;
-    padding-right:5px;
-}
+
 
 /*+++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++
